@@ -73,4 +73,9 @@
 **GRU** หรือ **Gated Recurrent Unit** เป็นโมเดลในกลุ่ม Recurrent Neural Network ที่ออกแบบมาเพื่อเรียนรู้ข้อมูลลำดับเวลา โดยสามารถจดจำข้อมูลจาก time steps ก่อนหน้าและนำมาใช้ประกอบการทำนายผลลัพธ์ปัจจุบัน
 
 ### รูปแบบ output ของ model
-เป็น Probability score เช่น 0.0–1.0 ว่าควร re-triage หรือไม่
+เป็น Probability score เช่น 0.0–1.0 ว่าควร re-triage หรือไม่ โดยแบ่งเป็น 3 ประเภท
+โมเดลให้ผลลัพธ์เป็น probability score ของแต่ละ class โดยใช้ `softmax` activation function ใน output layer ซึ่งประกอบด้วย 3 class ได้แก่
+
+- `continue_waiting` : ผู้ป่วยยังสามารถรอต่อได้
+- `observe_closely` : ควรเฝ้าระวังใกล้ชิดหรือวัดซ้ำเร็วขึ้น
+- `re_triage_now` : ควรได้รับการประเมินซ้ำทันที
