@@ -62,11 +62,15 @@
 
 ## 6) Model
 
-ตัวอย่าง model ที่เหมาะ ได้แก่  
-- Logistic Regression  
-- Decision Tree  
-- Random Forest  
-- XGBoost / LightGBM  
+ในการทดลองนี้เลือกใช้โมเดล Deep Learning จำนวน 2 รูปแบบ ได้แก่ **1D-CNN** และ **GRU** เนื่องจากข้อมูลที่ใช้เป็นข้อมูลสัญญาณชีพแบบลำดับเวลา โดยผู้ป่วยแต่ละรายมีการวัดซ้ำหลาย time steps เช่น ความดันโลหิต ชีพจร อัตราการหายใจ ค่า SpO₂ และอุณหภูมิร่างกาย
+
+### 1. 1D-CNN
+
+**1D-CNN** หรือ **One-Dimensional Convolutional Neural Network** เป็นโมเดลที่ใช้ชั้น `Conv1D` ในการเรียนรู้ pattern ของข้อมูลที่เรียงตามลำดับ เช่น time-series data หรือข้อมูลสัญญาณชีพที่ถูกวัดซ้ำตามเวลา
+
+### 2. GRU
+
+**GRU** หรือ **Gated Recurrent Unit** เป็นโมเดลในกลุ่ม Recurrent Neural Network ที่ออกแบบมาเพื่อเรียนรู้ข้อมูลลำดับเวลา โดยสามารถจดจำข้อมูลจาก time steps ก่อนหน้าและนำมาใช้ประกอบการทำนายผลลัพธ์ปัจจุบัน
 
 ### รูปแบบ output ของ model
 เป็น Probability score เช่น 0.0–1.0 ว่าควร re-triage หรือไม่
